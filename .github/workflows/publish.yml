@@ -15,11 +15,20 @@ jobs:
           fetch-depth: 0
 
       - uses: actions/setup-dotnet@v4
+
+      - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "6.0.x"
+          dotnet-version: "8.0.x"
 
       - run: ./Build.ps1
         shell: pwsh
         env:
           NUGET_SOURCE: ${{ secrets.NUGET_SOURCE }}
           NUGET_API_KEY: ${{ secrets.WORKLEAP_NUGET_API_KEY }}
+
+  linearb:
+    needs: [main]
+    uses: gsoft-inc/wl-reusable-workflows/.github/workflows/linearb-deployment.yml@main
+    with:
+      environment: 'release'
+    secrets: inherit

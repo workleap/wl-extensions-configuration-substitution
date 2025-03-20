@@ -9,7 +9,7 @@ jobs:
   create-release:
     permissions:
       contents: write
-    uses: workleap/wl-reusable-workflows/.github/workflows/create-stable-release.yml
+    uses: workleap/wl-reusable-workflows/.github/workflows/create-stable-release.yml@main
     secrets:
       # TODO Temporarily using this token as it is supposed to have the required permissions
       token: ${{ secrets.RENOVATE_TOKEN }}

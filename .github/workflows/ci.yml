@@ -22,10 +22,7 @@ permissions:
 
 jobs:
   ci:
-    strategy:
-      matrix:
-        os: [ubuntu-24.04, windows-2022]
-    runs-on: ${{ matrix.os }}
+    runs-on: [self-hosted, idp]
 
     steps:
       - uses: actions/checkout@v4
@@ -69,12 +66,3 @@ jobs:
     with:
       environment: development
     secrets: inherit
-
-
-
-
-
-
-
-
-

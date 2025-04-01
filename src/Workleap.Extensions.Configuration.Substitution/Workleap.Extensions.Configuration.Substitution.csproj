@@ -2,8 +2,6 @@
   <PropertyGroup>
     <TargetFrameworks>net8.0;netstandard2.0;</TargetFrameworks>
     <IsPackable>True</IsPackable>
-    <IncludeSymbols>True</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <AssemblyTitle>Workleap.Extensions.Configuration.Substitution</AssemblyTitle>
     <PackageId>Workleap.Extensions.Configuration.Substitution</PackageId>
     <SignAssembly>true</SignAssembly>

@@ -3,7 +3,6 @@ name: Create stable release
 on:
   pull_request:
     branches: [main]
-  workflow_dispatch:
 
 jobs:
   create-release:

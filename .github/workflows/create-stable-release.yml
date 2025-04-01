@@ -8,4 +8,5 @@ jobs:
   create-release:
     permissions:
       contents: write
+      id-token: write
     uses: workleap/wl-reusable-workflows/.github/workflows/create-stable-release.yml@feature/idp-3130_use_shared_token

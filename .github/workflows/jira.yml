@@ -7,7 +7,9 @@ on:
 
 jobs:
   call-workflow-jira:
-    uses: workleap/wl-reusable-workflows/.github/workflows/reusable-jira-workflow.yml@main
+    uses: workleap/wl-reusable-workflows/.github/workflows/reusable-jira-workflow.yml@feature/id-3311_migrate_jira
+    permissions:
+      id-token: write
+      contents: read
     with:
       branch_name: ${{ github.head_ref }}
-    secrets: inherit

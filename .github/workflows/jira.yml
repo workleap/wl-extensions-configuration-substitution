@@ -13,5 +13,3 @@ jobs:
       contents: read
     with:
       branch_name: ${{ github.head_ref }}
-    secrets:
-      inherit: true

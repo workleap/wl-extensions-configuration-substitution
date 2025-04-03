@@ -2,10 +2,10 @@ name: Semgrep scan
 
 on:
   pull_request:
-    branches: ["main"]
+    branches: ["main", "master"]
   workflow_dispatch: {}
   schedule:
-    - cron: "0 6 * * 6"
+    - cron: "10 22 * * 6"
 
 jobs:
   call-workflow-semgrep:

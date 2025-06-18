@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   main:
-    runs-on: [self-hosted, idp]
+    runs-on: [idp]
     environment: ci
     steps:
       - uses: actions/checkout@v4

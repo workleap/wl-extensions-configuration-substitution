@@ -16,7 +16,7 @@ public static class ConfigurationSubstitutorBuilderExtensions
     /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
     public static IConfigurationBuilder AddSubstitution(this IConfigurationBuilder configurationBuilder, bool eagerValidation = false)
     {
-        // We clear the list of sources and re-add then as cached sources. We used to just replace them in the sources list, but that triggers a configuration reload
+        // We clear the list of sources and re-add them as cached sources. We used to just replace them in the sources list, but that triggers a configuration reload
         // every time a source is changed. Adding them doesn't trigger a reload.
         var clone = configurationBuilder.Sources.ToArray();
         configurationBuilder.Sources.Clear();

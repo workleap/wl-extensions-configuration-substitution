@@ -30,7 +30,6 @@ public class IntegrationTests
         Assert.NotNull(provider);
         Assert.Equal(3, provider.ReloadCount);
 
-
         static void UpdateAppSettings(string value)
         {
             var appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "appSettings.test.json");

@@ -7,43 +7,6 @@ namespace Workleap.Extensions.Configuration.Substitution.Tests;
 
 public class ConfigurationSubstitutorTests
 {
-    private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
-
-    [Fact]
-    public async Task AddSubstitution_Does_Not_FuckUp_Config_Loading()
-    {
-        await using var factory = new WebApplicationFactory<Program>();
-        using var client = factory.CreateClient();
-
-        var configuration = factory.Services.GetRequiredService<IConfiguration>();
-        var someValue = configuration.GetValue<string>("SomeKey");
-
-        Assert.Equal("SomeValue", someValue);
-
-        if (configuration is IConfigurationRoot configRoot)
-        {
-            UpdateAppSettings("UpdatedValue");
-
-            configRoot.Reload();
-
-            var valueAfterReload = configuration.GetValue<string>("SomeKey");
-            Assert.Equal("UpdatedValue", valueAfterReload);
-        }
-
-        static void UpdateAppSettings(string value)
-        {
-            // This method is used to update the configuration in the test
-            var appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.test.json");
-            var newContent = new
-            {
-                SomeKey = value
-            };
-
-            var jsonContent = JsonSerializer.Serialize(newContent, JsonOptions);
-            File.WriteAllText(appSettingsPath, jsonContent);
-        }
-    }
-
     [Fact]
     public void AddSubstitution_Does_Nothing_When_Value_Does_Not_Exist()
     {

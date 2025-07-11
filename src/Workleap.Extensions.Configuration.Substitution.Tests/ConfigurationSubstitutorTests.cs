@@ -26,7 +26,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo", "Bar" },
             })
@@ -46,7 +46,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo", "Bar" },
             })
@@ -67,7 +67,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "ConnectionString", "blablabla&password=${DatabasePassword}&server=localhost" },
                 { "DatabasePassword", "ComplicatedPassword" },
@@ -88,7 +88,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "ConnectionString", "${DatabasePassword}&server=localhost" },
                 { "DatabasePassword", "ComplicatedPassword" },
@@ -109,7 +109,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "ConnectionString", "blablabla&password=${DatabasePassword}" },
                 { "DatabasePassword", "ComplicatedPassword" },
@@ -130,7 +130,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo", "Hello ${Bar1:Bar2}" },
                 { "Bar1:Bar2", "world!" },
@@ -151,7 +151,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo", "${Bar1}${Bar2}${Bar1}" },
                 { "Bar1", "Doe" },
@@ -173,7 +173,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo:0", "ArrayValue1" },
                 { "Foo:1", "ArrayValue2" },
@@ -195,7 +195,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "TestKey", "Test value ${Foobar}" },
             })
@@ -214,7 +214,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo", "Hello {world}" },
             })
@@ -234,7 +234,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo", "Hello ${Var what's up ?" },
             })
@@ -254,7 +254,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo", "${Var1}" },
                 { "Var1", string.Empty },
@@ -294,7 +294,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Bar", "${Foo}" },
                 { "Foo", "Hello ${Qux}" },
@@ -319,7 +319,7 @@ public class ConfigurationSubstitutorTests
     public void AddSubstitution_Throws_When_Simple_Circular_Key_Reference()
     {
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Bar", "${bar}" },
             })
@@ -336,7 +336,7 @@ public class ConfigurationSubstitutorTests
     public void AddSubstitution_Throws_When_Complex_Circular_Key_Reference_In_Multiple_Keys()
     {
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Bar", "${Foo}" },
                 { "Foo", "Hello ${Qux}" },
@@ -360,7 +360,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo", "Hello ${Bar}!" },
                 { "Bar", "${{Bar}}" },
@@ -381,7 +381,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo", "Hello ${Bar}!" },
                 { "Bar", "${{Bar}" },
@@ -402,7 +402,7 @@ public class ConfigurationSubstitutorTests
     {
         // Arrange
         var configurationBuilder = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string>
+            .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "Foo", "Bar" },
                 { "Bar", "${Foo}" },

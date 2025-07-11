@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System.Text.Json;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace Workleap.Extensions.Configuration.Substitution.Tests;
 

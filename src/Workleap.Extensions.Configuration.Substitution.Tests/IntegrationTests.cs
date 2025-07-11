@@ -33,8 +33,7 @@ public class IntegrationTests
 
         static void UpdateAppSettings(string value)
         {
-            // This method is used to update the configuration in the test
-            var appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.test.json");
+            var appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "appSettings.test.json");
             var newContent = new
             {
                 SomeKey = value

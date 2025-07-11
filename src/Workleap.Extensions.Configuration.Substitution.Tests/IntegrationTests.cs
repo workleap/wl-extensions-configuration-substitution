@@ -10,7 +10,7 @@ public class IntegrationTests
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
     [Fact]
-    public async Task AddSubstitution_Does_Not_FuckUp_Config_Loading()
+    public async Task AddSubstitution_Does_Not_Trigger_Config_Reload_Foreach_Provider()
     {
         await using var factory = new WebApplicationFactory<Program>();
         using var client = factory.CreateClient();

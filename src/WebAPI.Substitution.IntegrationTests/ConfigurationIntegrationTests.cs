@@ -12,6 +12,7 @@ public class ConfigurationIntegrationTests
     {
         await using var factory = new WebApplicationFactory<Program>();
         using var client = factory.CreateClient();
+        UpdateAppSettings("SomeValue");
 
         var configuration = (factory.Services.GetRequiredService<IConfiguration>() as IConfigurationRoot)!;
         var someValue = configuration.GetValue<string>("SomeKey");
@@ -27,6 +28,7 @@ public class ConfigurationIntegrationTests
         Assert.Equal("UpdatedValue", valueAfterReload);
         Assert.NotNull(provider);
         Assert.Equal(3, provider.ReloadCount);
+
 
         static void UpdateAppSettings(string value)
         {

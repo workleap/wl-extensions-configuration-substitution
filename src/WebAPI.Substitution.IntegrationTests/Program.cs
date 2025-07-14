@@ -1,4 +1,4 @@
-using WebApi.IntegrationTests;
+using WebAPI.Substitution.IntegrationTests;
 
 var builder = WebApplication.CreateBuilder(args);
 var path = Path.Combine(Directory.GetCurrentDirectory(), "appSettings.test.json");

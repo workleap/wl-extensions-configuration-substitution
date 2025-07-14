@@ -1,4 +1,4 @@
-namespace WebApi.IntegrationTests;
+namespace WebAPI.Substitution.IntegrationTests;
 
 /// <summary>
 /// A configuration source that tracks reload count statistics.

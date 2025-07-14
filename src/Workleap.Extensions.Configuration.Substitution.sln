@@ -1,5 +1,4 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workleap.Extensions.Configuration.Substitution", "Workleap.Extensions.Configuration.Substitution\Workleap.Extensions.Configuration.Substitution.csproj", "{CBBF00AA-871D-4324-8CFF-F14C6711E62D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workleap.Extensions.Configuration.Substitution.Tests", "Workleap.Extensions.Configuration.Substitution.Tests\Workleap.Extensions.Configuration.Substitution.Tests.csproj", "{C7F78FAD-BA5F-4593-890A-9F74EF2B6CF6}"
@@ -11,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{34567226
 		..\README.md = ..\README.md
 		..\global.json = ..\global.json
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.Substitution.IntegrationTests", "WebAPI.Substitution.IntegrationTests\WebAPI.Substitution.IntegrationTests.csproj", "{5001B3A3-2528-418B-9E3D-824DD8437E93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,5 +27,9 @@ Global
 		{C7F78FAD-BA5F-4593-890A-9F74EF2B6CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7F78FAD-BA5F-4593-890A-9F74EF2B6CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7F78FAD-BA5F-4593-890A-9F74EF2B6CF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5001B3A3-2528-418B-9E3D-824DD8437E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5001B3A3-2528-418B-9E3D-824DD8437E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5001B3A3-2528-418B-9E3D-824DD8437E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5001B3A3-2528-418B-9E3D-824DD8437E93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,10 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
+    <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>../Workleap.Extensions.Configuration.Substitution.snk</AssemblyOriginatorKeyFile>
     <NoWarn>CS7022</NoWarn>

@@ -1,6 +1,4 @@
-using Microsoft.Extensions.Configuration;
-
-namespace Workleap.Extensions.Configuration.Substitution.Tests;
+namespace WebApi.IntegrationTests;
 
 /// <summary>
 /// A configuration source that tracks reload count statistics.

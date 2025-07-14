@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
-using Workleap.Extensions.Configuration.Substitution.Tests;
+using WebApi.IntegrationTests;
 
 var builder = WebApplication.CreateBuilder(args);
 var path = Path.Combine(Directory.GetCurrentDirectory(), "appSettings.test.json");
@@ -11,3 +9,5 @@ builder.Configuration.AddSubstitution();
 
 var app = builder.Build();
 app.Run();
+
+public partial class Program { }

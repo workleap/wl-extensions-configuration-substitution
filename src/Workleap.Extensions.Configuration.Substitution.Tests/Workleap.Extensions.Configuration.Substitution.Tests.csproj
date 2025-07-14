@@ -27,14 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebAPI.IntegrationTests\WebAPI.IntegrationTests.csproj" />
     <ProjectReference Include="..\Workleap.Extensions.Configuration.Substitution\Workleap.Extensions.Configuration.Substitution.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="appSettings.test.json" CopyToOutputDirectory="Always" />
+    
   </ItemGroup>
 </Project>

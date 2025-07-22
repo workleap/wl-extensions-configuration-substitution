@@ -34,7 +34,7 @@ public class ConfigurationIntegrationTests
             var appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "appSettings.test.json");
             var newContent = new
             {
-                SomeKey = value
+                SomeKey = value,
             };
 
             var jsonContent = JsonSerializer.Serialize(newContent, JsonOptions);

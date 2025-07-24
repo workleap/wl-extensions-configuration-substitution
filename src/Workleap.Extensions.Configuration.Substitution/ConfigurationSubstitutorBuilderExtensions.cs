@@ -16,9 +16,15 @@ public static class ConfigurationSubstitutorBuilderExtensions
     /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
     public static IConfigurationBuilder AddSubstitution(this IConfigurationBuilder configurationBuilder, bool eagerValidation = false)
     {
+        // Check if substitution has already been added to avoid double-wrapping sources
+        if (System.Linq.Enumerable.Any(configurationBuilder.Sources, s => s is ChainedSubstitutedConfigurationSource))
+        {
+            return configurationBuilder;
+        }
+
         // We clear the list of sources and re-add them as cached sources. We used to just replace them in the sources list, but that triggers a configuration reload
         // every time a source is changed. Adding them doesn't trigger a reload.
-        var clone = configurationBuilder.Sources.ToArray();
+        var clone = System.Linq.Enumerable.ToArray(configurationBuilder.Sources);
         configurationBuilder.Sources.Clear();
 
         foreach (var configurationSource in clone)

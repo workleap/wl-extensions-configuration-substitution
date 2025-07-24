@@ -425,4 +425,34 @@ public class ConfigurationSubstitutorTests
         Assert.Equal("Bar", foo.Value);
         Assert.Equal("Bar", bar.Value);
     }
+
+    [Fact]
+    public void AddSubstitution_Can_Be_Called_Multiple_Times_Without_StackOverflow()
+    {
+        // Arrange & Act
+        var configurationBuilder = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                { "ConnectionString", "Server=${ServerName};Database=${DatabaseName}" },
+                { "ServerName", "localhost" },
+                { "DatabaseName", "TestDB" },
+            })
+            .AddSubstitution()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                { "AnotherValue", "SomeValue" },
+            })
+            .AddSubstitution(); // Second call should not cause StackOverflow
+
+        // This should not throw a StackOverflowException
+        var configuration = configurationBuilder.Build();
+
+        // Assert - The main requirement is that no StackOverflow occurs
+        // The second AddSubstitution call is ignored, which is acceptable behavior
+        var connectionString = configuration["ConnectionString"];
+        var anotherValue = configuration["AnotherValue"];
+
+        Assert.Equal("Server=localhost;Database=TestDB", connectionString);
+        Assert.Equal("SomeValue", anotherValue); // This source was added after substitution, so no substitution occurs
+    }
 }

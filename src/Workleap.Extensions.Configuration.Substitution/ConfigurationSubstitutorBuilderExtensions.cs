@@ -26,8 +26,6 @@ public static class ConfigurationSubstitutorBuilderExtensions
         var clone = configurationBuilder.Sources.ToArray();
         configurationBuilder.Sources.Clear();
 
-        var chainedSubstitutedAdded = false;
-
         foreach (var configurationSource in clone)
         {
             switch (configurationSource)
@@ -44,10 +42,7 @@ public static class ConfigurationSubstitutorBuilderExtensions
             }
         }
 
-        if (!chainedSubstitutedAdded)
-        {
-            configurationBuilder.Sources.Add(new ChainedSubstitutedConfigurationSource(eagerValidation));
-        }
+        configurationBuilder.Sources.Add(new ChainedSubstitutedConfigurationSource(eagerValidation));
 
         return configurationBuilder;
     }

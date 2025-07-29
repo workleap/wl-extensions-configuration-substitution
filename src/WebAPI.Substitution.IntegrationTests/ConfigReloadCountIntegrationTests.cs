@@ -39,6 +39,7 @@ public class ConfigReloadCountIntegrationTests : IClassFixture<ConfigReloadCount
             {
                 config.Add<ReloadCountingConfigurationSource>(_ => { });
                 config.AddSubstitution();
+                config.AddSubstitution();
             });
         }
     }

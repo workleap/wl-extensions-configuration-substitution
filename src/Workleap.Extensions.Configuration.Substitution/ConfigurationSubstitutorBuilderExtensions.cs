@@ -16,6 +16,11 @@ public static class ConfigurationSubstitutorBuilderExtensions
     /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
     public static IConfigurationBuilder AddSubstitution(this IConfigurationBuilder configurationBuilder, bool eagerValidation = false)
     {
+        if (configurationBuilder.Sources.Last() is ChainedSubstitutedConfigurationSource)
+        {
+            return configurationBuilder;
+        }
+
         // We clear the list of sources and re-add them as cached sources. We used to just replace them in the sources list, but that triggers a configuration reload
         // every time a source is changed. Adding them doesn't trigger a reload.
         var clone = configurationBuilder.Sources.ToArray();
@@ -31,8 +36,7 @@ public static class ConfigurationSubstitutorBuilderExtensions
                     configurationBuilder.Sources.Add(configurationSource);
                     continue;
                 case ChainedSubstitutedConfigurationSource:
-                    configurationBuilder.Sources.Add(configurationSource);
-                    chainedSubstitutedAdded = true;
+                    // Don't do anything here as we want the ChainedSubstitutedConfigurationSource to be the last one in the list.
                     continue;
                 default:
                     configurationBuilder.Sources.Add(new CachedConfigurationSource(configurationSource));

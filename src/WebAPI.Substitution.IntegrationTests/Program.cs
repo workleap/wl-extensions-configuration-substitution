@@ -1,5 +1,3 @@
-using WebAPI.Substitution.IntegrationTests;
-
 var builder = WebApplication.CreateBuilder(args);
 var path = Path.Combine(Directory.GetCurrentDirectory(), "appSettings.test.json");
 
@@ -8,10 +6,6 @@ builder.Configuration.AddInMemoryCollection(new Dictionary<string, string?>(Stri
 {
     { "SampleKey", "SampleValue" },
 });
-builder.Configuration.Add<ReloadCountingConfigurationSource>(_ => { });
-builder.Configuration.AddSubstitution();
-
-builder.Configuration.AddSubstitution();
 
 var app = builder.Build();
 app.Run();

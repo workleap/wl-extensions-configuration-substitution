@@ -27,7 +27,7 @@ public class ConfigurationIntegrationTests
 
         Assert.Equal("UpdatedValue", valueAfterReload);
         Assert.NotNull(provider);
-        Assert.Equal(3, provider.ReloadCount);
+        Assert.Equal(5, provider.ReloadCount);
 
         static void UpdateAppSettings(string value)
         {

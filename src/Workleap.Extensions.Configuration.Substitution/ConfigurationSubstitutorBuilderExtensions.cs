@@ -21,11 +21,30 @@ public static class ConfigurationSubstitutorBuilderExtensions
         var clone = configurationBuilder.Sources.ToArray();
         configurationBuilder.Sources.Clear();
 
+        var chainedSubstitutedAdded = false;
+
         foreach (var configurationSource in clone)
         {
-            configurationBuilder.Sources.Add(new CachedConfigurationSource(configurationSource));
+            switch (configurationSource)
+            {
+                case CachedConfigurationSource:
+                    configurationBuilder.Sources.Add(configurationSource);
+                    continue;
+                case ChainedSubstitutedConfigurationSource:
+                    configurationBuilder.Sources.Add(configurationSource);
+                    chainedSubstitutedAdded = true;
+                    continue;
+                default:
+                    configurationBuilder.Sources.Add(new CachedConfigurationSource(configurationSource));
+                    continue;
+            }
         }
 
-        return configurationBuilder.Add(new ChainedSubstitutedConfigurationSource(eagerValidation));
+        if (!chainedSubstitutedAdded)
+        {
+            configurationBuilder.Sources.Add(new ChainedSubstitutedConfigurationSource(eagerValidation));
+        }
+
+        return configurationBuilder;
     }
 }

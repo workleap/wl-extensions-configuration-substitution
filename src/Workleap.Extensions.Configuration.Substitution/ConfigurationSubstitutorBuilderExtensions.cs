@@ -16,7 +16,7 @@ public static class ConfigurationSubstitutorBuilderExtensions
     /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
     public static IConfigurationBuilder AddSubstitution(this IConfigurationBuilder configurationBuilder, bool eagerValidation = false)
     {
-        if (configurationBuilder.Sources.Last() is ChainedSubstitutedConfigurationSource)
+        if (configurationBuilder.Sources.LastOrDefault() is ChainedSubstitutedConfigurationSource)
         {
             return configurationBuilder;
         }

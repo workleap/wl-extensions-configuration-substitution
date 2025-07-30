@@ -38,7 +38,6 @@ public static class ConfigurationSubstitutorBuilderExtensions
                     continue;
                 default:
                     configurationBuilder.Sources.Add(new CachedConfigurationSource(configurationSource));
-                    continue;
             }
         }
 

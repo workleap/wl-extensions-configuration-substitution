@@ -35,4 +35,3 @@ internal sealed class ReloadCountingConfigurationProvider : ConfigurationProvide
     {
     }
 }
-

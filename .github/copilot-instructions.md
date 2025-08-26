@@ -12,16 +12,16 @@ Always reference these instructions first and fallback to search or bash command
 - Navigate to repository: `cd /home/runner/work/wl-extensions-configuration-substitution/wl-extensions-configuration-substitution`
 
 ### Bootstrap, Build, and Test Commands
-**CRITICAL TIMING**: All operations are fast in this repository. Commands typically complete in 2-10 seconds.
+**CRITICAL TIMING**: All operations are fast in this repository.
 - Navigate to src directory: `cd src`
-- Clean: `dotnet clean` -- takes 1 second
-- Debug build: `dotnet build --configuration Debug` -- takes 7 seconds. NEVER CANCEL.
+- Clean: `dotnet clean`
+- Debug build: `dotnet build --configuration Debug`
 - **Release build limitation**: `dotnet build --configuration Release` fails due to GitVersion requirements in sandbox environment. Use Debug builds for development.
-- Test: `dotnet test --configuration Debug --no-build --logger "console;verbosity=detailed"` -- takes 2 seconds, runs 22 tests (20 unit + 2 integration). NEVER CANCEL.
+- Test: `dotnet test --configuration Debug --no-build --logger "console;verbosity=detailed"`
 
 ### Validation and Quality Checks
-- **ALWAYS format code**: `dotnet format` -- takes 12 seconds. NEVER CANCEL.
-- **ALWAYS verify formatting**: `dotnet format --verify-no-changes` -- takes 12 seconds. Must pass before committing.
+- **ALWAYS format code**: `dotnet format`
+- **ALWAYS verify formatting**: `dotnet format --verify-no-changes`
 - **ALWAYS build and test** after making any code changes to ensure functionality is preserved.
 
 ### Manual Functionality Testing

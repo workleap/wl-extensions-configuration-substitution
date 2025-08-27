@@ -116,10 +116,6 @@ dotnet run
 
 ## Build Limitations and Workarounds
 
-### Known Issues
-- **GitVersion fails in sandbox environment**: Release builds fail due to git repository requirements
-- **Workaround**: Use Debug builds for all development work
-- **NuGet packaging**: Use `dotnet pack --configuration Debug` for testing package creation
 
 ### CI/CD Information
 - GitHub Actions workflows in `.github/workflows/`

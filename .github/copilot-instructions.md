@@ -16,7 +16,6 @@ Always reference these instructions first and fallback to search or bash command
 - Navigate to src directory: `cd src`
 - Clean: `dotnet clean`
 - Debug build: `dotnet build --configuration Debug`
-- **Release build limitation**: `dotnet build --configuration Release` fails due to GitVersion requirements in sandbox environment. Use Debug builds for development.
 - Test: `dotnet test --configuration Debug --no-build --logger "console;verbosity=detailed"`
 
 ### Validation and Quality Checks

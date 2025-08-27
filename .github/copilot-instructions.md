@@ -114,7 +114,6 @@ dotnet run
 - **Adding new substitution features**: Modify `ConfigurationSubstitutor.cs` and add corresponding tests
 - **API changes**: Update `ConfigurationSubstitutorBuilderExtensions.cs` and `PublicAPI.Unshipped.txt`
 - **Bug fixes**: Add failing test first, then implement fix
-- **Always check handler.ts after making changes to apiContracts.ts** - N/A (this is a .NET project, not TypeScript)
 
 ## Build Limitations and Workarounds
 

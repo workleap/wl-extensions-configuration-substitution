@@ -25,7 +25,7 @@ jobs:
     runs-on: [idp]
     environment: ci
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -36,7 +36,7 @@ jobs:
           variables: ${{ toJSON(vars) }}
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
         with:
           global-json-file: "global.json"
           dotnet-version: |
